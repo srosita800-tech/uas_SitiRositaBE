@@ -5,8 +5,8 @@ import (
 	"os"
 
 	"github.com/joho/godotenv"
-	"github.com/indra1nkuss/week4_catalog_inkus/config"
-	"github.com/indra1nkuss/week4_catalog_inkus/routes"
+	"github.com/srosita800-tech/uas_1125170150BE/config"
+	"github.com/srosita800-tech/uas_1125170150BE/routes"
 )
 
 func main() {

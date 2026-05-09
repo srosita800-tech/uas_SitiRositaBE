@@ -2,8 +2,8 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/indra1nkuss/week4_catalog_inkus/handlers"
-	"github.com/indra1nkuss/week4_catalog_inkus/middleware"
+	"github.com/srosita800-tech/uas_1125170150BE/handlers"
+	"github.com/srosita800-tech/uas_1125170150BE/middleware"
 )
 
 func SetupRouter() *gin.Engine {
@@ -26,20 +26,25 @@ func SetupRouter() *gin.Engine {
 	// ─── Init handlers ────────────────────────────────────────
 	authHandler := handlers.NewAuthHandler()
 	productHandler := handlers.NewProductHandler()
+	cartHandler := handlers.NewCartHandler()
 
 	// ─── API v1 group ─────────────────────────────────────────
 	v1 := r.Group("/v1")
 	{
 		// Health check — tidak perlu auth
 		v1.GET("/health", func(c *gin.Context) {
-			c.JSON(200, gin.H{"status": "ok", "service": "Backend Catalog Indra-Inkus"})
+			c.JSON(200, gin.H{"status": "ok", "service": "Backend Catalog Srosita"})
 		})
 
 		// ── Auth routes (public) ──────────────────────────────
 		auth := v1.Group("/auth")
 		{
-			// Terima Firebase token → return Backend JWT
+			// Utama: Verifikasi Firebase token → return Backend JWT
 			auth.POST("/verify-token", authHandler.VerifyToken)
+			
+			// Tambahan untuk kompatibilitas frontend
+			auth.POST("/register", authHandler.Register)
+			auth.POST("/login", authHandler.Login)
 		}
 
 		// ── Protected routes (butuh Backend JWT) ──────────────
@@ -60,6 +65,15 @@ func SetupRouter() *gin.Engine {
 					adminProducts.PUT("/:id", productHandler.Update)    // PUT /v1/products/:id
 					adminProducts.DELETE("/:id", productHandler.Delete) // DELETE /v1/products/:id
 				}
+			}
+
+			// ── Cart routes ───────────────────────────────────────
+			cart := protected.Group("/cart")
+			{
+				cart.GET("", cartHandler.GetCart)             // GET /v1/cart
+				cart.POST("/add", cartHandler.AddToCart)      // POST /v1/cart/add
+				cart.POST("/reduce", cartHandler.ReduceQuantity) // POST /v1/cart/reduce
+				cart.DELETE("", cartHandler.ClearCart)        // DELETE /v1/cart
 			}
 		}
 	}

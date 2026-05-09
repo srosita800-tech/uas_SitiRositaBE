@@ -1,8 +1,8 @@
 package services
 
 import (
-	"github.com/indra1nkuss/week4_catalog_inkus/models"
-	"github.com/indra1nkuss/week4_catalog_inkus/repositories"
+	"github.com/srosita800-tech/uas_1125170150BE/models"
+	"github.com/srosita800-tech/uas_1125170150BE/repositories"
 )
 
 type ProductService struct {

@@ -5,8 +5,8 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-	"github.com/indra1nkuss/week4_catalog_inkus/models"
-	"github.com/indra1nkuss/week4_catalog_inkus/services"
+	"github.com/srosita800-tech/uas_1125170150BE/models"
+	"github.com/srosita800-tech/uas_1125170150BE/services"
 )
 
 type ProductHandler struct {

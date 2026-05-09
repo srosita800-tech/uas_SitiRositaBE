@@ -8,9 +8,9 @@ import (
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"
-	"github.com/indra1nkuss/week4_catalog_inkus/config"
-	"github.com/indra1nkuss/week4_catalog_inkus/models"
-	"github.com/indra1nkuss/week4_catalog_inkus/repositories"
+	"github.com/srosita800-tech/uas_1125170150BE/config"
+	"github.com/srosita800-tech/uas_1125170150BE/models"
+	"github.com/srosita800-tech/uas_1125170150BE/repositories"
 	"gorm.io/gorm"
 )
 

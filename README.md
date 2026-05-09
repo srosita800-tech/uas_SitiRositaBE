@@ -1,4 +1,4 @@
-# Catalog Inkus 
+# Catalog Srosita 
 
 ## 📝 Catatan Mengenai Riwayat Commit
 

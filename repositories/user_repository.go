@@ -1,8 +1,8 @@
 package repositories
 
 import (
-	"github.com/indra1nkuss/week4_catalog_inkus/config"
-	"github.com/indra1nkuss/week4_catalog_inkus/models"
+	"github.com/srosita800-tech/uas_1125170150BE/config"
+	"github.com/srosita800-tech/uas_1125170150BE/models"
 )
 
 type UserRepository struct{}

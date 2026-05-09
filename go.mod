@@ -1,4 +1,4 @@
-module github.com/indra1nkuss/week4_catalog_inkus
+module github.com/srosita800-tech/uas_1125170150BE
 
 go 1.26.1
 

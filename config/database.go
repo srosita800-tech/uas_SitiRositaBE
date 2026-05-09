@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/indra1nkuss/week4_catalog_inkus/models"
+	"github.com/srosita800-tech/uas_1125170150BE/models"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -26,7 +26,7 @@ func InitDatabase() {
 	if host == "" { host = "localhost" }
 	if port == "" { port = "3306" }
 	if user == "" { user = "inuser" }
-	if dbname == "" { dbname = "catalog_inkus" }
+	if dbname == "" { dbname = "catalog_sita" }
 
 	// Format DSN (Data Source Name) untuk MySQL
 	// Format: user:pass@tcp(host:port)/dbname?params
@@ -60,6 +60,7 @@ func InitDatabase() {
 	err = DB.AutoMigrate(
 		&models.User{},
 		&models.Product{},
+		&models.Cart{},
 	)
 	if err != nil {
 		log.Fatalf("AutoMigrate gagal: %v", err)
